@@ -1,5 +1,6 @@
-function PostsNew() {
-  return <div id="posts-new">
+export function PostsNew() {
+  return (
+   <div id="posts-new">
     <h1>New post</h1>
     <form action="">
       <label htmlFor="title">Title:</label><br />
@@ -9,6 +10,7 @@ function PostsNew() {
       <label htmlFor="body">Image:</label><br />
       <input type="text" id="image" name="image" /><br />
     </form>
-  </div>;
+  </div>
+  )
 }
-exports.PostsNew = PostsNew;
+

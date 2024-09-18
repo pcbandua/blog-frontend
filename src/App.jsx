@@ -5,10 +5,9 @@ import { ArtPage } from './ArtPage';
 function App() {
   return (
     <div id="content">
-      <Header/>
-      <ArtPage/>
+      <Header />
+      <ArtPage />
       <Footer />
-    
     </div>
   );
 }

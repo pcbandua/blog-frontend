@@ -1,0 +1,41 @@
+#posts-index img {
+  width: 300px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Content */
+
+#content {
+  max-width: 100%;
+  background-color: rgb(239, 239, 239);
+  padding: 20px;
+  display: grid;
+  justify-content: center;
+
+}
+
+/* Headings */
+
+h1,
+h2 {
+  font-family: sans-serif;
+}
+
+p {
+  font-family: sans-serif;
+  font-size: medium;
+}
+
+/* Posts */
+
+#posts-index {
+  max-width: 75%;
+}
+
+#posts-index img {
+  border-radius: 10px;
+  max-width: 2000px;
+}

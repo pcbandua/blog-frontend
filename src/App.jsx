@@ -18,9 +18,13 @@ function PostsNew (){
 </div>
 }
 
-function PostsIndex(){
+function PostsIndex(props){
+  console.log(props.myFirstName)
+
+  return(
   <div id="posts-index">
         <h1>All posts</h1>
+        <p>The name is {props.name}</p>
           <div>
             <h2>AFROSURREALISM #1</h2>
             <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*eZ2lNPcEt6gjeVeL-yHTqA.png" alt="" />
@@ -43,23 +47,36 @@ function PostsIndex(){
           </div>
 
       </div>
-
+  )
 }
 
+
+
 function Footer (){
-return <footer>
+return 
+(<footer>
         <p>Copyright 20XX</p>
       </footer>
+)
+}
+function ArtPage(){
+
+  let firstName = "Andela"; 
+  return(
+  <>
+  <PostsNew/>
+  <PostsIndex myFirstName={firstName}/>
+  </>
+  )
 }
 
 function App() {
   return (
     <div id="content">
       <Header/>
-      <PostsNew/>
-      <PostsIndex/>
+      <ArtPage/>
       <Footer />
-      
+    
     </div>
   );
 }

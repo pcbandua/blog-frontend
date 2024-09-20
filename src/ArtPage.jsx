@@ -6,11 +6,12 @@ import { Modal } from "./Modal"
 
 export function ArtPage(){
   let firstName = "Andela"; 
-  const [posts, setPosts] = useState([]);
-  
-  
 
-  let posts = [];
+  console.log('this is a test hello')
+
+  const [posts, setPosts] = useState([]);
+  const [isPostsShowVisible, setIsPostShowVisible] = useState(false);
+  
   let artPosts = [
     // {
     //   id: 1,
@@ -31,23 +32,46 @@ export function ArtPage(){
     //   image_url: "https://media.cnn.com/api/v1/images/stellar/prod/220118230223-01-david-alabo-afrosurrealism.jpg?q=h_3000,w_3000,x_0,y_0",
     // },
   ];
-
+// INDEX 
   const getArtPostData = () => {
     console.log('hello');
-    axios.get("http://localhost:3000/products.json").then(response =>{console.log(response)
+    axios.get("http://localhost:3000/posts.json").then(response =>{console.log(response)
     })
   }
 
-  useEffect(handleIndex, []);
+  // // CREATE
+  // const createArtPostData = () => {
+  //   console.log('hello');
+  //   axios.post("http://localhost:3000/posts.json").then(response =>{console.log(response)
+  //   })
+  // }
+
+
+  const showModal = () => {
+    setIsPostsShowVisible(true);
+  };
+
+  const closeModal = () => {
+    setIsPostsShowVisible(false);
+  };
+
+  useEffect(getArtPostData, []);
+
+// RESTFUL BUTTONS
+  // <button id="createArtPostData">Create Art Post</button>
+  // <button id="readPost">Read Post</button>
+  // <button id="updatePost">Update Post</button>
+  // <button id="deletePost">Delete Post</button>
+  // <button id="listPosts">List Posts</button>
 
   return(
   <main>
   <PostsNew/>
-  <PostsIndex myFirstName={firstName} artPosts={artPosts}/>
+  <PostsIndex myFirstName={firstName} artPosts={posts} onShow={showModal}/>
   <button onClick={getArtPostData}>get Art Posts</button>
-  <Modal show={true}>
+  <Modal show={isPostsShowVisible} onClose={closeModal}>
         <p>TEST Content</p>
-      </Modal>
+  </Modal>
   </main>
   )
 }
